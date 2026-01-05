@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const latestWritings = (await getCollection('writings'))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+  .slice(0, 3);
+
+const latestProjects = (await getCollection('projects'))
+  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime())
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title="Software Engineer specializing in Robotics"
+  description="Exploring the intersection of hardware and software in robotics engineering."
+>
+  <div class="container mx-auto px-6">
+    <!-- Hero Section -->
+    <section class="mb-section-lg">
+      <h1 class="text-hero-lg font-bold mb-6 tracking-tight">
+        Software Engineer<br />
+        <span class="text-gray-600 dark:text-gray-400">specializing in Robotics</span>
+      </h1>
+      <p class="text-lg text-gray-700 dark:text-gray-300 max-w-2xl leading-relaxed">
+        Building intelligent systems at the intersection of hardware and software. 
+        Exploring autonomous navigation, sensor fusion, and real-time control systems 
+        that bridge the gap between code and physical machines.
+      </p>
+    </section>
+
+    <!-- Latest Feed -->
+    <section class="mb-section-lg">
+      <h2 class="text-2xl font-semibold mb-8 font-mono text-gray-800 dark:text-gray-200">
+        Latest from the Garden
+      </h2>
+      
+      <div class="space-y-section">
+        <!-- Latest Writings -->
+        {latestWritings.length > 0 && (
+          <div>
+            <h3 class="text-lg font-semibold mb-4 text-gray-700 dark:text-gray-300">
+              Recent Writings
+            </h3>
+            <ul class="space-y-4">
+              {latestWritings.map((writing) => (
+                <li>
+                  <article>
+                    <a
+                      href={`/writings/${writing.slug}`}
+                      class="group block focus:outline-none focus:ring-2 focus:ring-gray-900 dark:focus:ring-gray-100 focus:ring-offset-2 dark:focus:ring-offset-gray-900 rounded"
+                    >
+                      <h4 class="text-xl font-semibold mb-2 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors">
+                        {writing.data.title}
+                      </h4>
+                      <p class="text-gray-600 dark:text-gray-400 mb-2">
+                        {writing.data.description}
+                      </p>
+                      <div class="flex items-center gap-4 text-sm font-mono text-gray-500 dark:text-gray-500">
+                        <time datetime={writing.data.pubDate.toISOString()}>
+                          {writing.data.pubDate.toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                          })}
+                        </time>
+                        <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-xs">
+                          {writing.data.status}
+                        </span>
+                      </div>
+                    </a>
+                  </article>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        <!-- Latest Projects -->
+        {latestProjects.length > 0 && (
+          <div>
+            <h3 class="text-lg font-semibold mb-4 text-gray-700 dark:text-gray-300">
+              Recent Projects
+            </h3>
+            <ul class="space-y-4">
+              {latestProjects.map((project) => (
+                <li>
+                  <article>
+                    <a
+                      href={`/projects/${project.slug}`}
+                      class="group block focus:outline-none focus:ring-2 focus:ring-gray-900 dark:focus:ring-gray-100 focus:ring-offset-2 dark:focus:ring-offset-gray-900 rounded"
+                    >
+                      <h4 class="text-xl font-semibold mb-2 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors">
+                        {project.data.title}
+                      </h4>
+                      <p class="text-gray-600 dark:text-gray-400 mb-2">
+                        {project.data.description}
+                      </p>
+                      <div class="flex items-center gap-2 flex-wrap">
+                        {project.data.techStack.map((tech) => (
+                          <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-xs font-mono text-gray-700 dark:text-gray-300">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </a>
+                  </article>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {latestWritings.length === 0 && latestProjects.length === 0 && (
+          <p class="text-gray-600 dark:text-gray-400">
+            Content coming soon. Check back later for writings and projects.
+          </p>
+        )}
+      </div>
+    </section>
+  </div>
+</BaseLayout>

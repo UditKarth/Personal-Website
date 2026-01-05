@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allWritings = (await getCollection('writings')).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+
+const writingsByStatus = {
+  evergreen: allWritings.filter((w) => w.data.status === 'evergreen'),
+  budding: allWritings.filter((w) => w.data.status === 'budding'),
+  seedling: allWritings.filter((w) => w.data.status === 'seedling'),
+};
+
+const statusLabels = {
+  evergreen: 'Evergreen',
+  budding: 'Budding',
+  seedling: 'Seedling',
+};
+
+const statusDescriptions = {
+  evergreen: 'Mature thoughts, well-developed ideas',
+  budding: 'Growing concepts, work in progress',
+  seedling: 'Early ideas, initial explorations',
+};
+---
+
+<BaseLayout
+  title="Writings — Digital Garden"
+  description="A collection of writings on robotics, software engineering, and technical explorations."
+>
+  <div class="container mx-auto px-6">
+    <header class="mb-section">
+      <h1 class="text-hero font-bold mb-6 tracking-tight">Writings</h1>
+      <p class="text-lg text-gray-700 dark:text-gray-300 max-w-2xl">
+        A digital garden of thoughts, experiments, and technical explorations. 
+        Content grows from seedlings to evergreen pieces over time.
+      </p>
+    </header>
+
+    <div class="space-y-section-lg">
+      {(['evergreen', 'budding', 'seedling'] as const).map((status) => {
+        const writings = writingsByStatus[status];
+        if (writings.length === 0) return null;
+        
+        return (
+          <section>
+            <div class="mb-6">
+              <h2 class="text-2xl font-semibold mb-2 font-mono text-gray-800 dark:text-gray-200">
+                {statusLabels[status]}
+              </h2>
+              <p class="text-sm text-gray-600 dark:text-gray-400 font-mono">
+                {statusDescriptions[status]}
+              </p>
+            </div>
+            
+            <ul class="space-y-6">
+              {writings.map((writing) => (
+                <li>
+                  <article>
+                    <a
+                      href={`/writings/${writing.slug}`}
+                      class="group block focus:outline-none focus:ring-2 focus:ring-gray-900 dark:focus:ring-gray-100 focus:ring-offset-2 dark:focus:ring-offset-gray-900 rounded"
+                    >
+                      <h3 class="text-xl font-semibold mb-2 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors">
+                        {writing.data.title}
+                      </h3>
+                      <p class="text-gray-600 dark:text-gray-400 mb-3">
+                        {writing.data.description}
+                      </p>
+                      <div class="flex items-center gap-4 flex-wrap">
+                        <time
+                          datetime={writing.data.pubDate.toISOString()}
+                          class="text-sm font-mono text-gray-500 dark:text-gray-500"
+                        >
+                          {writing.data.pubDate.toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                          })}
+                        </time>
+                        {writing.data.tags.length > 0 && (
+                          <div class="flex items-center gap-2 flex-wrap">
+                            {writing.data.tags.map((tag) => (
+                              <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-xs font-mono text-gray-700 dark:text-gray-300">
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </a>
+                  </article>
+                </li>
+              ))}
+            </ul>
+          </section>
+        );
+      })}
+    </div>
+
+    {allWritings.length === 0 && (
+      <p class="text-gray-600 dark:text-gray-400">
+        No writings yet. Check back soon for content.
+      </p>
+    )}
+  </div>
+</BaseLayout>
+
