@@ -53,7 +53,7 @@ const { Content } = await project.render();
         
         <div class="flex flex-wrap gap-2 mb-4 animate-fade-in-up" style="animation-delay: 0.4s;">
           {project.data.techStack.map((tech) => (
-            <span class="px-3 py-1 bg-gray-100 rounded text-sm font-mono text-gray-700">
+            <span class="px-3 py-1 bg-gray-100 rounded text-sm font-mono text-gray-700 transition-all duration-200 ease-out hover:bg-gray-900 hover:text-white hover:scale-105 hover:shadow-md cursor-default transform-gpu">
               {tech}
             </span>
           ))}
