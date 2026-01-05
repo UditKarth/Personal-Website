@@ -1,7 +1,7 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Navigation from '../components/Navigation.astro';
-import ThemeToggle from '../components/ThemeToggle.astro';
+import { ViewTransitions } from 'astro:transitions';
 import '../styles/global.css';
 
 interface Props {
@@ -18,24 +18,45 @@ const { title, description, image, url } = Astro.props;
 <html lang="en" class="scroll-smooth">
   <head>
     <BaseHead {title} {description} {image} {url} />
+    <ViewTransitions />
   </head>
-  <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 antialiased transition-colors">
+  <body class="bg-white text-gray-900 antialiased">
     <header class="container mx-auto px-6 py-8">
-      <div class="flex items-center justify-between">
-        <Navigation />
-        <ThemeToggle />
-      </div>
+      <Navigation />
     </header>
     
     <main>
       <slot />
     </main>
     
-    <footer class="container mx-auto px-6 py-section mt-section-lg border-t border-gray-200 dark:border-gray-800">
-      <p class="text-sm text-gray-600 dark:text-gray-400 font-mono">
+    <footer class="container mx-auto px-6 py-section mt-section-lg border-t border-gray-200">
+      <p class="text-sm text-gray-600 font-mono">
         © {new Date().getFullYear()} — Built with Astro & Tailwind CSS
       </p>
     </footer>
+
+    <script>
+      // Intersection Observer for scroll animations
+      (function() {
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = '1';
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        // Observe all elements with animate-fade-in-up class
+        document.querySelectorAll('.animate-fade-in-up').forEach((el) => {
+          observer.observe(el);
+        });
+      })();
+    </script>
   </body>
 </html>
-

@@ -32,46 +32,46 @@ const statusDescriptions = {
   <div class="container mx-auto px-6">
     <header class="mb-section">
       <h1 class="text-hero font-bold mb-6 tracking-tight">Writings</h1>
-      <p class="text-lg text-gray-700 dark:text-gray-300 max-w-2xl">
+      <p class="text-lg text-gray-700 max-w-2xl animate-fade-in-up" style="animation-delay: 0.1s;">
         A digital garden of thoughts, experiments, and technical explorations. 
         Content grows from seedlings to evergreen pieces over time.
       </p>
     </header>
 
     <div class="space-y-section-lg">
-      {(['evergreen', 'budding', 'seedling'] as const).map((status) => {
+      {(['evergreen', 'budding', 'seedling'] as const).map((status, statusIndex) => {
         const writings = writingsByStatus[status];
         if (writings.length === 0) return null;
         
         return (
-          <section>
+          <section class="animate-fade-in-up" style={`animation-delay: ${0.2 + statusIndex * 0.1}s;`}>
             <div class="mb-6">
-              <h2 class="text-2xl font-semibold mb-2 font-mono text-gray-800 dark:text-gray-200">
+              <h2 class="text-2xl font-semibold mb-2 font-mono text-gray-800">
                 {statusLabels[status]}
               </h2>
-              <p class="text-sm text-gray-600 dark:text-gray-400 font-mono">
+              <p class="text-sm text-gray-600 font-mono">
                 {statusDescriptions[status]}
               </p>
             </div>
             
             <ul class="space-y-6">
-              {writings.map((writing) => (
-                <li>
+              {writings.map((writing, index) => (
+                <li class="animate-fade-in-up" style={`animation-delay: ${0.3 + statusIndex * 0.1 + index * 0.05}s;`}>
                   <article>
                     <a
                       href={`/writings/${writing.slug}`}
-                      class="group block focus:outline-none focus:ring-2 focus:ring-gray-900 dark:focus:ring-gray-100 focus:ring-offset-2 dark:focus:ring-offset-gray-900 rounded"
+                      class="group block focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded"
                     >
-                      <h3 class="text-xl font-semibold mb-2 group-hover:text-gray-600 dark:group-hover:text-gray-400 transition-colors">
+                      <h3 class="text-xl font-semibold mb-2 group-hover:text-gray-600 transition-colors">
                         {writing.data.title}
                       </h3>
-                      <p class="text-gray-600 dark:text-gray-400 mb-3">
+                      <p class="text-gray-600 mb-3">
                         {writing.data.description}
                       </p>
                       <div class="flex items-center gap-4 flex-wrap">
                         <time
                           datetime={writing.data.pubDate.toISOString()}
-                          class="text-sm font-mono text-gray-500 dark:text-gray-500"
+                          class="text-sm font-mono text-gray-500"
                         >
                           {writing.data.pubDate.toLocaleDateString('en-US', {
                             year: 'numeric',
@@ -82,7 +82,7 @@ const statusDescriptions = {
                         {writing.data.tags.length > 0 && (
                           <div class="flex items-center gap-2 flex-wrap">
                             {writing.data.tags.map((tag) => (
-                              <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded text-xs font-mono text-gray-700 dark:text-gray-300">
+                              <span class="px-2 py-1 bg-gray-100 rounded text-xs font-mono text-gray-700">
                                 {tag}
                               </span>
                             ))}
@@ -100,7 +100,7 @@ const statusDescriptions = {
     </div>
 
     {allWritings.length === 0 && (
-      <p class="text-gray-600 dark:text-gray-400">
+      <p class="text-gray-600">
         No writings yet. Check back soon for content.
       </p>
     )}
