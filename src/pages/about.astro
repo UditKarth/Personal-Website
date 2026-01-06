@@ -12,7 +12,14 @@ import SocialLinks from '../components/SocialLinks.astro';
       <header class="mb-section animate-fade-in-up">
         <h1 class="text-hero font-bold mb-6 tracking-tight">About</h1>
       </header>
-
+        <div class="animate-fade-in-up" style="animation-delay: 0.5s;">
+          <SocialLinks 
+            github="https://github.com/yourusername"
+            twitter="https://twitter.com/yourusername"
+            linkedin="https://linkedin.com/in/yourusername"
+            email="mailto:your@email.com"
+          />
+        </div>
       <div class="space-y-6">
         <p class="text-lg text-gray-700 leading-relaxed mb-6 animate-fade-in-up" style="animation-delay: 0.1s;">
           I'm a Software Engineer with a deep passion for robotics and the intricate dance 
@@ -43,15 +50,6 @@ import SocialLinks from '../components/SocialLinks.astro';
           on technical deep-dives, project showcases, and thoughts on the evolving landscape 
           of robotics engineering.
         </p>
-
-        <div class="animate-fade-in-up" style="animation-delay: 0.5s;">
-          <SocialLinks 
-            github="https://github.com/yourusername"
-            twitter="https://twitter.com/yourusername"
-            linkedin="https://linkedin.com/in/yourusername"
-            email="mailto:your@email.com"
-          />
-        </div>
       </div>
     </article>
   </div>

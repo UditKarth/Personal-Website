@@ -3,7 +3,7 @@ title: "PaperTime - ML Paper Recommendation Website"
 description: "A modern, intelligent machine learning paper recommendation system that helps researchers discover relevant papers tailored to their interests."
 githubUrl: "https://github.com/UditKarth/PaperTime"
 techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Zustand", "ArXiv API", "TF-IDF"]
-publishDate: 2024-11-15
+publishDate: 2025-11-15
 ---
 
 A modern, intelligent machine learning paper recommendation system that helps researchers discover relevant papers tailored to their interests.

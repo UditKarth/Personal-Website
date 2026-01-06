@@ -2,8 +2,8 @@
 title: "bluefin"
 description: "Companion tool for RedFin's Unofficial API that allows users to query houses and calculate/store financial viability for real estate analysis."
 githubUrl: "https://github.com/UditKarth/bluefin"
-techStack: ["Python", "PyGUI", "Web Scraping", "CSV"]
-publishDate: 2024-09-10
+techStack: ["Python", "PyGUI", "Puppeteer", "CSV"]
+publishDate: 2023-08-10
 ---
 
 A companion tool for RedFin's Unofficial API that enables users to query houses and calculate/store financial viability for real estate analysis.
