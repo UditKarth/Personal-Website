@@ -1,11 +1,11 @@
 ---
 title: "Beyond Goals: The Rise of Process-Aware Rewards in Robotics"
-pubDate: 2025-12-31
+pubDate: 2026-01-02
 description: "Exploring how General Process Reward Models (GRMs) are revolutionizing robot learning by focusing on process rather than just end goals."
 status: "evergreen"
 tags: ["robotics", "reinforcement-learning", "reward-modeling", "machine-learning"]
 ---
-
+![Robotics Development](images/RewardModeling.png)
 Teaching robots to perform precise manipulation tasks—like assembly, surgery, or everyday household work—has always run into the same problem: how do you define the right reward? In reinforcement learning (RL), the reward function is everything. If it's poorly designed, the robot either learns very slowly or learns the wrong behavior entirely.
 
 Over time, reward modeling in robotics has gone through several major phases. Each one fixed some problems while introducing new ones. The latest shift—General Process Reward Models (GRMs)—marks a big step toward robots that can learn complex tasks quickly and reliably from minimal human input.

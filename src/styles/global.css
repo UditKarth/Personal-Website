@@ -37,6 +37,23 @@ body {
   opacity: 0;
 }
 
+/* Fade in from left animation */
+@keyframes fade-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-left {
+  animation: fade-in-left 0.6s ease-out forwards;
+  opacity: 0;
+}
+
 /* Page transition styles */
 ::view-transition-old(root),
 ::view-transition-new(root) {

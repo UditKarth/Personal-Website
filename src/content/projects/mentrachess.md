@@ -1,6 +1,6 @@
 ---
 title: "MentraChess"
-description: "A real-time chess server for AR smart glasses using the MentraOS SDK. Features voice-controlled chess, AR board display, and Stockfish AI—all deployable on Node.js or Bun with no system binary dependencies."
+description: "A real-time chess server for AR smart glasses using the MentraOS SDK; made for the MentraOS hackathon. Features voice-controlled chess, AR board display, and Stockfish AI—all deployable on Node.js or Bun with no system binary dependencies."
 githubUrl: "https://github.com/UditKarth/MentraChess"
 techStack: ["TypeScript", "Node.js", "MentraOS SDK", "Stockfish", "AR"]
 publishDate: 2025-10-20
@@ -11,6 +11,7 @@ A real-time chess server for AR smart glasses using the MentraOS SDK. Features v
 ## Key Features
 
 - **Voice-controlled chess moves**: Natural language move commands (e.g., "rook to d4", "pawn e5")
+- **P2P Connectiosn**: Connect with others using Mentra glasses and play
 - **AI opponent**: Stockfish integration with configurable difficulty levels
 - **Real-time AR board**: Live board and feedback display on smart glasses
 - **Session management**: Persistent game state and session handling

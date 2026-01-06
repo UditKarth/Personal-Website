@@ -1,6 +1,6 @@
 ---
 title: "Real-Time Control Systems"
-pubDate: 2024-02-20
+pubDate: 2025-09-20
 description: "Designing control loops that meet strict timing requirements in robotic systems."
 status: "budding"
 tags: ["robotics", "control-systems", "real-time"]
