@@ -30,3 +30,4 @@ The application is fully client-side, using browser-native APIs for XML parsing 
 
 Built with Next.js 14+ using the App Router, TypeScript for type safety, Tailwind CSS for styling, and Zustand for state management. The recommendation engine implements content-based filtering using TF-IDF vectorization.
 
+
