@@ -6,9 +6,9 @@ status: "evergreen"
 tags: ["robotics", "reinforcement-learning", "reward-modeling", "machine-learning"]
 ---
 ![Robotics Development](images/RewardModeling.png)
-Teaching robots to perform precise manipulation tasks—like assembly, surgery, or everyday household work—has always run into the same problem: how do you define the right reward? In reinforcement learning (RL), the reward function is everything. If it's poorly designed, the robot either learns very slowly or learns the wrong behavior entirely.
+Teaching robots to perform precise manipulation tasks (like assembly, surgery, or everyday household work) has always run into the same problem: how do you define the right reward? In reinforcement learning (RL), the reward function is everything. If it's poorly designed, the robot either learns very slowly or learns the wrong behavior entirely.
 
-Over time, reward modeling in robotics has gone through several major phases. Each one fixed some problems while introducing new ones. The latest shift—General Process Reward Models (GRMs)—marks a big step toward robots that can learn complex tasks quickly and reliably from minimal human input.
+Over time, reward modeling in robotics has gone through several major phases. Each one fixed some problems while introducing new ones. The latest shift, to General Process Reward Models (GRMs), marks a big step toward robots that can learn complex tasks quickly and reliably from minimal human input.
 
 ## The Early Days: Hand-Coded Rewards and Their Limits
 
@@ -32,7 +32,7 @@ IRL learns a reward function from expert demonstrations.
 
 RLHF learns rewards from human preference comparisons between trajectories.
 
-These methods align robots with human intent better than hand-coded rules, but they're slow and costly. Collecting demos or preference labels—especially for high-precision tasks—doesn't scale.
+These methods align robots with human intent better than hand-coded rules, but they're slow and costly. Collecting demos or preference labels doesn't scale, especially when it comes to high-precision tasks.
 
 ## Foundation Models Enter the Picture
 
