@@ -85,3 +85,20 @@ body {
     opacity: 1;
   }
 }
+
+/* Math equation styling */
+.katex {
+  font-size: 1.1em;
+}
+
+.katex-display {
+  margin: 1.5em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Ensure math equations don't break layout */
+.katex-display > .katex {
+  display: inline-block;
+  text-align: initial;
+}
