@@ -8,6 +8,7 @@ const writingsCollection = defineCollection({
     description: z.string(),
     status: z.enum(['seedling', 'budding', 'evergreen']),
     tags: z.array(z.string()).default([]),
+    series: z.string().optional(),
   }),
 });
 
