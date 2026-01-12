@@ -1,0 +1,176 @@
+---
+// Glossary definitions - can be expanded as needed
+// To add nested terms, include <span data-glossary="TERM">word</span> in the definition string
+const glossary: Record<string, string> = {
+  'MOSFETs': 'Metal-Oxide-Semiconductor Field-Effect Transistor',
+  'MOSFET': 'Metal-Oxide-Semiconductor Field-Effect Transistor',
+  'PID': 'Proportional-Integral-Derivative',
+  'MPC': 'Model Predictive Control',
+  'RL': 'Reinforcement Learning',
+  'IMU': 'Inertial Measurement Unit',
+  'MIMO': 'Multiple Input Multiple Output',
+  'RTOS': 'Real-Time Operating System',
+  'SLAM': 'Simultaneous Localization and Mapping',
+  'TF-IDF': 'Term Frequency-Inverse Document Frequency',
+};
+---
+
+<script is:inline>
+  (function() {
+    const glossary = {
+      'MOSFETs': 'Metal-Oxide-Semiconductor Field-Effect Transistor - a type of <span data-glossary="transistor">transistor</span> used for switching and amplifying electronic signals',
+      'MOSFET': 'Metal-Oxide-Semiconductor Field-Effect Transistor - a type of <span data-glossary="transistor">transistor</span> used for switching and amplifying electronic signals',
+      'transistor': 'A semiconductor device that can amplify or switch electronic signals',
+      'PID': 'Proportional-Integral-Derivative',
+      'MPC': 'Model Predictive Control',
+      'RL': 'Reinforcement Learning',
+      'IMU': 'Inertial Measurement Unit',
+      'MIMO': 'Multiple Input Multiple Output',
+      'RTOS': 'Real-Time Operating System',
+      'SLAM': 'Simultaneous Localization and Mapping',
+      'TF-IDF': 'Term Frequency-Inverse Document Frequency',
+    };
+    
+    function createTooltip(element, definition) {
+      // Check if tooltip already exists
+      if (element.querySelector('.glossary-tooltip')) return;
+      
+      // Ensure element has proper styling
+      element.style.position = 'relative';
+      element.style.display = 'inline';
+      element.style.cursor = 'help';
+      element.classList.add('glossary-term');
+      
+      // Create tooltip container
+      const tooltip = document.createElement('div');
+      tooltip.className = 'glossary-tooltip';
+      tooltip.innerHTML = definition;
+      tooltip.setAttribute('role', 'tooltip');
+      tooltip.setAttribute('aria-hidden', 'true');
+      tooltip.style.display = 'none'; // Hidden by default
+      
+      // Append tooltip to element
+      element.appendChild(tooltip);
+      
+      // Handle nested glossary terms in tooltip
+      parseNestedTerms(tooltip);
+      
+      // Show/hide on hover
+      element.addEventListener('mouseenter', function() {
+        tooltip.style.display = 'block';
+        // Trigger animation
+        requestAnimationFrame(() => {
+          tooltip.classList.add('tooltip-visible');
+        });
+      });
+      
+      element.addEventListener('mouseleave', function() {
+        tooltip.classList.remove('tooltip-visible');
+        // Hide after animation
+        setTimeout(() => {
+          tooltip.style.display = 'none';
+        }, 200);
+      });
+    }
+    
+    function parseNestedTerms(container) {
+      const terms = container.querySelectorAll('[data-glossary]');
+      terms.forEach((term) => {
+        const termKey = term.getAttribute('data-glossary');
+        if (termKey && glossary[termKey]) {
+          createTooltip(term, glossary[termKey]);
+        }
+      });
+    }
+    
+    function initializeGlossary() {
+      const terms = document.querySelectorAll('[data-glossary]');
+      terms.forEach((term) => {
+        const termKey = term.getAttribute('data-glossary');
+        if (termKey && glossary[termKey]) {
+          createTooltip(term, glossary[termKey]);
+        }
+      });
+    }
+    
+    // Initialize on load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeGlossary);
+    } else {
+      initializeGlossary();
+    }
+    
+    // Re-initialize after Astro ViewTransitions
+    document.addEventListener('astro:page-load', initializeGlossary);
+  })();
+</script>
+
+<style>
+  .glossary-term {
+    border-bottom: 1px dotted currentColor;
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative;
+    display: inline;
+  }
+  
+  .glossary-term:hover {
+    color: #111827;
+  }
+  
+  .glossary-tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px) scale(0.95);
+    background: #111827;
+    color: #f9fafb;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 320px;
+    white-space: normal;
+    word-wrap: break-word;
+    margin-bottom: 8px;
+  }
+  
+  .glossary-tooltip.tooltip-visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+    pointer-events: auto;
+  }
+  
+  /* Speech bubble arrow */
+  .glossary-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top-color: #111827;
+    filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.1));
+  }
+  
+  /* Handle nested glossary terms in tooltips */
+  .glossary-tooltip .glossary-term {
+    border-bottom-color: rgba(249, 250, 251, 0.5);
+    color: #93c5fd;
+  }
+  
+  .glossary-tooltip .glossary-term:hover {
+    color: #dbeafe;
+  }
+  
+  /* Ensure tooltip doesn't break layout */
+  .glossary-term:has(.glossary-tooltip) {
+    position: relative;
+    display: inline;
+  }
+</style>

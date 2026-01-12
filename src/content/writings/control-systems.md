@@ -7,7 +7,7 @@ tags: ["robotics", "control-systems", "PID", "MPC", "reinforcement-learning", "h
 series: "Foundations of Robotics"
 ---
 
-Robotics sits at the junction of physical mechanics and computational intelligence, often grouped under the label Physical Artificial Intelligence. The control system forms the center of this junction. It provides the mathematical and algorithmic machinery that turns abstract goals into physical motion. For a computer science professional moving into robotics, the work extends beyond writing correct code. The practical challenge lies in understanding how that code behaves when it encounters friction, noise, latency, and incomplete models. This report walks through robotics control systems from hardware interfaces to modern combinations of classical control and learning based methods.
+Robotics sits at the junction of physical mechanics and computational intelligence, often grouped under the label Physical Artificial Intelligence. The control system lives at the center of this junction and plays a role similar to a robot’s brain. It takes in signals from sensors, processes them, and sends commands to the motors, much like a nervous system turning intent into movement. For a computer science professional moving into robotics, the work goes beyond writing code that compiles and passes tests. The real challenge is learning how that code behaves once it runs inside a machine that has weight, inertia, electrical limits, and imperfect perception. Friction slows things down, sensors introduce noise, clocks drift, and models never line up exactly with reality. This report walks through robotics control systems from the hardware that touches the world to modern approaches that combine classical control with learning based methods, with an emphasis on how these pieces work together in practice.
 
 ## The Physical Interface: Sensors, Actuators, and the Logic of Interaction
 
@@ -30,7 +30,7 @@ Choosing a sensor involves balancing cost, complexity, and robustness. Increment
 
 Actuators, most often electric motors, execute the controller’s commands. Unlike software, motors obey physical limits. A control signal requests torque or velocity, but the motor can only deliver what its construction allows.
 
-High speed and high precision systems must account for switching losses and heat generation in motor drivers such as MOSFETs. Rapid oscillation in control signals increases thermal stress and risks failure. Actuators also have inertia, which resists sudden changes in motion. Control commands must respect this inertia to avoid damaging gears and linkages.
+High speed and high precision systems must account for switching losses and heat generation in motor drivers such as <span data-glossary="MOSFETs">MOSFETs</span>. Rapid oscillation in control signals increases thermal stress and risks failure. Actuators also have inertia, which resists sudden changes in motion. Control commands must respect this inertia to avoid damaging gears and linkages.
 
 ## Foundational Control Paradigms: Open Loop versus Closed Loop
 
@@ -50,7 +50,7 @@ Feedback allows a robot to tolerate uncertainty. A robot arm can hold position w
 
 ## The Universal Standard: Proportional Integral Derivative Control
 
-Among closed loop methods, Proportional Integral Derivative control remains the industry default. Engineers rely on it because it delivers strong performance without demanding a perfect physical model.
+Among closed loop methods, <span data-glossary="PID">Proportional Integral Derivative</span> control remains the industry default. Engineers rely on it because it delivers strong performance without demanding a perfect physical model.
 
 ### The Three Pillars of PID
 
