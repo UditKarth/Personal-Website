@@ -1,7 +1,7 @@
 ---
 title: "Control Systems"
 description: "A comprehensive analysis of robotics control systems, from foundational hardware interfaces to the cutting-edge intersections of classical control theory and reinforcement learning."
-pubDate: 2025-01-15
+pubDate: 2026-01-11
 status: "evergreen"
 tags: ["robotics", "control-systems", "PID", "MPC", "reinforcement-learning", "hardware"]
 series: "Foundations of Robotics"
