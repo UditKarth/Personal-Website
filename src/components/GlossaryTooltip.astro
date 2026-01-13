@@ -47,7 +47,13 @@ const glossary: Record<string, string> = {
       tooltip.innerHTML = definition;
       tooltip.setAttribute('role', 'tooltip');
       tooltip.setAttribute('aria-hidden', 'true');
-      tooltip.style.display = 'none'; // Hidden by default
+      // Ensure tooltip is a block element and removed from flow
+      tooltip.style.display = 'none';
+      tooltip.style.position = 'absolute';
+      tooltip.style.boxSizing = 'border-box';
+      tooltip.style.background = 'rgba(255, 255, 255, 0.9)';
+      tooltip.style.backdropFilter = 'blur(4px)';
+      tooltip.style.webkitBackdropFilter = 'blur(4px)';
       
       // Append tooltip to element
       element.appendChild(tooltip);
@@ -112,6 +118,7 @@ const glossary: Record<string, string> = {
     transition: color 0.2s;
     position: relative;
     display: inline;
+    vertical-align: baseline;
   }
   
   .glossary-term:hover {
@@ -119,12 +126,12 @@ const glossary: Record<string, string> = {
   }
   
   .glossary-tooltip {
-    position: absolute;
+    position: absolute !important;
     bottom: calc(100% + 8px);
     left: 50%;
     transform: translateX(-50%) translateY(4px) scale(0.95);
-    background: #111827;
-    color: #f9fafb;
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #111827;
     padding: 10px 14px;
     border-radius: 8px;
     font-size: 0.875rem;
@@ -137,40 +144,64 @@ const glossary: Record<string, string> = {
     max-width: 320px;
     white-space: normal;
     word-wrap: break-word;
-    margin-bottom: 8px;
+    display: block;
+    box-sizing: border-box;
+    /* Ensure tooltip is completely removed from document flow */
+    margin: 0;
+    width: max-content;
+    min-width: 200px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
   }
   
   .glossary-tooltip.tooltip-visible {
-    opacity: 1;
+    opacity: 1 !important;
     transform: translateX(-50%) translateY(0) scale(1);
     pointer-events: auto;
   }
   
   /* Speech bubble arrow */
   .glossary-tooltip::after {
-    content: '';
+    content: '' !important;
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
+    width: 0;
+    height: 0;
     border: 8px solid transparent;
-    border-top-color: #111827;
+    border-top-color: rgba(255, 255, 255, 0.9);
     filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.1));
+    display: block;
+  }
+  
+  .glossary-tooltip.tooltip-visible::after {
+    display: block !important;
   }
   
   /* Handle nested glossary terms in tooltips */
   .glossary-tooltip .glossary-term {
-    border-bottom-color: rgba(249, 250, 251, 0.5);
-    color: #93c5fd;
+    border-bottom-color: rgba(17, 24, 39, 0.3);
+    color: #2563eb;
   }
   
   .glossary-tooltip .glossary-term:hover {
-    color: #dbeafe;
+    color: #1d4ed8;
   }
   
-  /* Ensure tooltip doesn't break layout */
-  .glossary-term:has(.glossary-tooltip) {
-    position: relative;
-    display: inline;
+  /* Prevent tooltip from affecting text flow */
+  .glossary-term .glossary-tooltip {
+    /* Remove from normal flow completely - ensure it's absolutely positioned */
+    position: absolute !important;
+    /* When hidden, it should not affect layout at all */
+    display: none;
+    /* Ensure background is always applied */
+    background: rgba(255, 255, 255, 0.9) !important;
+  }
+  
+  .glossary-term .glossary-tooltip.tooltip-visible {
+    display: block !important;
+    opacity: 1 !important;
+    background: rgba(255, 255, 255, 0.9) !important;
   }
 </style>
