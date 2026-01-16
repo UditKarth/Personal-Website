@@ -14,11 +14,9 @@ Robots disagree with this model.
 
 This post walks through why long context robotics keeps breaking static models, how test time training reframes the problem, and why recent end to end approaches matter if you want robots that operate for hours instead of demos.
 
-The framing stays practical. The math shows up only when it earns its keep.
-
 ## Sequence modeling before attention
 
-Early robotics leaned on recurrence. A robot observed something, updated a hidden state, and acted. Repeat.
+Early robotics leaned on recurrence. A robot observed something, updated a hidden state, and acted. This was repeated ad infinitum.
 
 A vanilla recurrent neural network updates its hidden state like this:
 
@@ -26,13 +24,13 @@ $$
 h_t = \sigma(W_{hh} h_{t-1} + W_{xh} x_t + b_h)
 $$
 
-The hidden state tries to summarize everything that mattered so far. That works for short horizons. It fails quietly for long ones.
+The hidden state tries to summarize everything that mattered so far. That works for short horizons, but fails quietly for long ones.
 
-Backpropagation through time multiplies gradients repeatedly. They shrink or explode. Long range dependencies blur. You end up tuning learning rates and hoping the task stays forgiving.
+Backpropagation through time multiplies gradients repeatedly. They either shrink or explode. Long range dependencies blur. You end up tuning learning rates and hoping the task stays forgiving.
 
-LSTMs improved this by adding gates and a persistent cell state. In robotics, this mattered. Manipulation benefited. Visual servoing stabilized. Tasks like pouring became tractable because temporal structure mattered more than raw perception.
+<span data-glossary="LSTMs">LSTMs</span> improved this by adding gates and a persistent cell state. In robotics, this was huge. Manipulation benefited, visual servoing stabilized, and tasks like pouring became tractable because temporal structure mattered more than raw perception.
 
-The bottleneck stayed. Everything still compressed into a fixed vector. Training stayed sequential. GPUs waited patiently while time marched forward one step at a time.
+However, the bottleneck stayed. Everything still compressed into a fixed vector. Training stayed sequential. GPUs waited patiently while time marched forward one step at a time.
 
 ## Attention changes the shape of memory
 
@@ -46,9 +44,9 @@ $$
 
 For robotics, this unlocked long horizon credit assignment. A robot could connect an early action with a late outcome without waiting for rewards to propagate slowly.
 
-Decision Transformers pushed this further by treating reinforcement learning as sequence modeling. Feed in states, actions, and desired returns. Predict the next action. Training stabilized. Offline data became useful.
+Decision Transformers pushed this further by treating reinforcement learning as sequence modeling. Feed in states, actions, and desired returns and you could predict the next action. Training stabilized. Offline data became useful.
 
-The cost arrived quietly. Attention scales quadratically with context length. Longer tasks demanded more context. Latency climbed. Memory exploded. Edge devices complained.
+Unfortunately, this too introduced new costs. Attention scales quadratically with context length. Longer tasks demanded more context. Latency climbed. Memory exploded. Edge devices complained.
 
 ## Vision language action at scale
 
