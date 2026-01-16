@@ -9,7 +9,7 @@ interface Props {
 const {
   title = 'Software Engineer fascinated by Robotics',
   description = 'Exploring the intersection of hardware and software in robotics engineering.',
-  image = '/og-image.jpg',
+  image = '/og-image.png',
   url = Astro.url.href,
 } = Astro.props;
 
@@ -42,9 +42,10 @@ const absoluteUrl = url.startsWith('http')
 <meta property="og:image:height" content="630" />
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={absoluteUrl} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={absoluteImageUrl} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={absoluteUrl} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={absoluteImageUrl} />
+<meta name="twitter:image:alt" content={title} />
 
