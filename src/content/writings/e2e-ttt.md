@@ -6,6 +6,7 @@ status: "evergreen"
 tags: ["robotics", "control-systems", "E2E-TTT", "transformers", "reinforcement-learning", "hardware"]
 series: "Foundations of Robotics"
 ---
+![VLA Growth](images/e2e-ttt.png)
 
 I came into robotics from software, carrying a familiar mental model. You train a model. You deploy it. Inference stays fixed. The code runs. Reality politely cooperates.
 
@@ -133,3 +134,13 @@ For software engineers entering robotics, this framing feels familiar. Systems e
 
 Robots finally agree.
 
+Sources:
+- [End-to-End Test-Time Training for Long Context](https://arxiv.org/pdf/2512.23675)
+- [Decision Transformer: Reinforcement Learning via Sequence Modeling](https://arxiv.org/pdf/2106.01345)
+- [Steering Decision Transformers via Temporal Difference Learning](https://cpsl.pratt.duke.edu/files/docs/d2t2.pdf)
+- [RT-2: Vision-Language-Action Models](https://robotics-transformer2.github.io/)
+- [Learning to (Learn at Test Time)](https://arxiv.org/html/2310.13807)
+- [Test-Time Training (TTT): A Comprehensive Exploration of Its Theory, Applications, and Future Implications](https://medium.com/@sampan090611/test-time-training-ttt-a-comprehensive-exploration-of-its-theory-applications-and-future-46a934481782)
+- [Test-Time Training on Video Streams](https://www.jmlr.org/papers/volume26/24-0439/24-0439.pdf)
+- [EVOLVE-VLA: Test-Time Training from Environment Feedback for Vision-Language-Action Models](https://arxiv.org/pdf/2512.14666)
+- [Test-Time Training Done Right](https://arxiv.org/pdf/2505.23884v1)
