@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import GlossaryTooltip from '../../components/GlossaryTooltip.astro';
 import { getCollection } from 'astro:content';
+import { readFile } from 'fs/promises';
+import { join } from 'path';
 
 export async function getStaticPaths() {
   const writings = await getCollection('writings');
@@ -13,11 +15,42 @@ export async function getStaticPaths() {
 
 const { writing } = Astro.props;
 const { Content } = await writing.render();
+
+// Extract first image from markdown if no image is specified in frontmatter
+async function extractFirstImage(slug: string): Promise<string | undefined> {
+  try {
+    const filePath = join(process.cwd(), 'src', 'content', 'writings', `${slug}.md`);
+    const markdown = await readFile(filePath, 'utf-8');
+    const imageRegex = /!\[.*?\]\((.*?\.(png|jpg|jpeg|gif|webp))\)/i;
+    const match = markdown.match(imageRegex);
+    if (match && match[1]) {
+      const imagePath = match[1];
+      // If it's a relative path like "images/xxx.png", convert to public path
+      if (imagePath.startsWith('images/')) {
+        return `/writings-images/${imagePath.replace('images/', '')}`;
+      }
+      // If it's already an absolute URL or public path, return as is
+      if (imagePath.startsWith('http') || imagePath.startsWith('/')) {
+        return imagePath;
+      }
+      // Otherwise, assume it's a public path
+      return imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
+    }
+  } catch (error) {
+    // If file can't be read, just return undefined
+    console.warn(`Could not read markdown file for ${slug}:`, error);
+  }
+  return undefined;
+}
+
+// Get image from frontmatter or extract from markdown
+const image = writing.data.image || await extractFirstImage(writing.slug);
 ---
 
 <BaseLayout
   title={`${writing.data.title} — Writings`}
   description={writing.data.description}
+  image={image}
 >
   <div class="container mx-auto px-6">
     <article class="max-w-3xl mx-auto">

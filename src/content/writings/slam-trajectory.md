@@ -5,7 +5,7 @@ description: "Exploring how SLAM has evolved over the recent years to, from a pr
 status: "evergreen"
 tags: ["robotics", "reinforcement-learning", "visual-slam", "embodied-ai"]
 ---
-![SLAM2.0](images/SLAM2.0Diagram.png)
+![SLAM2.0](/writings-images/SLAM2.0Diagram.png)
 The field of Simultaneous Localization and Mapping, commonly referred to as SLAM, has evolved from a theoretical construct in the mid 1980s into a core component of modern autonomous systems. At its core, SLAM defines the problem of enabling an autonomous agent to construct a representation of an unknown environment while simultaneously estimating its own pose within that representation. The difficulty arises from a circular dependency. Accurate mapping depends on precise localization, and precise localization depends on an accurate map. Over four decades, the field has addressed this dependency through successive methodological shifts, beginning with probabilistic filtering, progressing through global optimization, and arriving at neural geometric priors and implicit scene representations.
 
 ## Probabilistic Foundations from 1986 to 1995

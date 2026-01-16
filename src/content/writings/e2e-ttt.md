@@ -6,7 +6,7 @@ status: "evergreen"
 tags: ["robotics", "control-systems", "E2E-TTT", "transformers", "reinforcement-learning", "hardware"]
 series: "Foundations of Robotics"
 ---
-![VLA Growth](images/e2e-ttt.png)
+![VLA Growth](/writings-images/e2e-ttt.png)
 
 I came into robotics from software, carrying a familiar mental model. You train a model. You deploy it. Inference stays fixed. The code runs. Reality politely cooperates.
 

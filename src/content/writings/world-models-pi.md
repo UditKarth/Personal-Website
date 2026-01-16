@@ -6,7 +6,7 @@ status: "evergreen"
 tags: ["robotics", "reinforcement-learning", "world-models", "machine-learning"]
 ---
 
-![How Robots Learn Human Motion](images/HumanMotionLearning.png)
+![How Robots Learn Human Motion](/writings-images/HumanMotionLearning.png)
 
 AI is moving out of the screen and into the physical world. This shift is one of the biggest changes since neural networks became mainstream. At the center of it all is the world model.
 
