@@ -22,7 +22,7 @@ The application uses the npm `stockfish` package which runs as a Node.js child p
 
 The chess logic handles move parsing from natural language voice commands, validates moves according to chess rules, and manages game state. The AR display provides real-time visual feedback of the board state and move outcomes.
 
-## Architecture
+## Tech Stack
 
 Built with TypeScript and designed to work seamlessly with the MentraOS SDK. The server handles voice input parsing, chess move validation, Stockfish AI integration, and AR rendering—all in a single deployable Node.js application.
 

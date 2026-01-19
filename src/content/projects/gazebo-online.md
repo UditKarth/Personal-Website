@@ -4,7 +4,7 @@ description: "A React-based web application featuring a side-by-side IDE and 3D 
 githubUrl: "https://github.com/UditKarth/GazeboOnline"
 demoUrl: "https://gazebo-online.vercel.app/"
 techStack: ["React", "Three.js", "React Three Fiber", "Monaco Editor", "Zustand", "Tailwind CSS", "Vite"]
-publishDate: 2025-12-01
+publishDate: 2026-01-19
 ---
 
 A React-based web application featuring a side-by-side IDE and 3D Robot Simulation with support for multiple robot types. Write C++ code to control robots in real-time with a professional engineering interface.
@@ -56,7 +56,7 @@ void main() {
 
 The rover includes 360° LiDAR visualization, frontal distance sensor (5m range), LED indicator, and real-time telemetry with velocity graphs and occupancy maps.
 
-## Technical Implementation
+## Tech Stack
 
 Built with React 18 and Three.js for 3D rendering, the application uses React Three Fiber for declarative 3D scene management. The Monaco Editor provides a professional code editing experience with C++ syntax highlighting. Zustand manages state for both robot types, while a custom physics engine handles realistic rover movement with friction and watchdog behavior.
 

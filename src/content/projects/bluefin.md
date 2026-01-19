@@ -23,7 +23,7 @@ Perfect for real estate investors and home buyers who want to:
 - Calculate financial viability of potential purchases
 - Export data for further analysis in spreadsheets
 
-## Technical Implementation
+## Tech Stack
 
 The tool integrates with RedFin's unofficial API to fetch property data, then provides a clean PyGUI interface for querying and managing searches. All results can be exported to CSV format for easy data analysis and storage.
 
