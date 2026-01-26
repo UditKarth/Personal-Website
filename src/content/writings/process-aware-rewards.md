@@ -40,11 +40,11 @@ Vision-language models like CLIP made it possible to specify goals in natural la
 
 This led to robotics-focused models like:
 
-- **R3M** – learned manipulation-friendly visual representations from human videos
+- **R3M**: learned manipulation-friendly visual representations from human videos
 
-- **VIP** – treated visual goal reaching as a value-learning problem
+- **VIP**: treated visual goal reaching as a value-learning problem
 
-- **LIV** – combined language understanding with goal-conditioned rewards
+- **LIV**: combined language understanding with goal-conditioned rewards
 
 These models generalized well and worked zero-shot, but they struggled with:
 
@@ -60,7 +60,7 @@ Success rates on hard manipulation tasks were often below 50%.
 
 ## The Breakthrough: General Process Reward Models (GRMs)
 
-GRMs, introduced with the Robo-Dopamine framework, tackle the core problem directly: robots need to understand process, not just end goals.
+GRMs, introduced with the Robo-Dopamine framework, tackle the core problem by making one clear observation: robots need to understand processes instead of just the end goals.
 
 Key ideas:
 
@@ -88,33 +88,25 @@ Compared to earlier methods, GRMs hit a sweet spot:
 | Method                  | Data Needed       | Training Time | Precision Task Success |
 | ----------------------- | ----------------- | ------------- | ---------------------- |
 | Sparse RL               | Millions of steps | Days          | Often fails            |
-| Imitation Learning      | 50+ demos         | Hours         | 40–60%                 |
-| VIP / LIV               | 1 goal image      | Zero-shot     | 30–46%                 |
+| Imitation Learning      | 50+ demos         | Hours         | 40-60%                 |
+| VIP / LIV               | 1 goal image      | Zero-shot     | 30-46%                 |
 | **GRM (Robo-Dopamine)** | **1 demo**         | **~1 hour**   | **95%+**               |
 
-GRMs combine:
-
-- The structure of reward machines
-
-- The generalization of foundation models
-
-- The safety of policy-invariant shaping
-
-- All without heavy human supervision.
+GRMs combine the structure of reward machines, the generalization of foundation models and the safety of policy-invariant shaping; all without heavy human supervision.
 
 ## The Bigger Picture: Where Reward Modeling Is Headed
 
-Reward models are shifting from simple scoring functions to reasoning systems. With vision-LLMs at their core, GRMs don't just say how good a state is—they implicitly understand why progress is happening.
+Based on the trajectory from hand-coded rewards to GRMs, the future of reward modeling is moving toward process-aware, multi-modal systems that require minimal human input.
 
-This opens the door to:
+We're likely to see:
 
-- Test-time action verification (sampling actions and picking the best one)
+- Hybrid architectures that combine GRM-style process understanding with foundation models.
 
-- More interpretable robot feedback
+- Self-improving reward models that refine themselves through interaction.
 
-- Faster adaptation without retraining policies
+- Task composition through modular process models. 
 
-In short, better reward models don't just make robots learn faster. They change what robots can realistically be taught—and who gets to teach them.
+Rather than learning each manipulation task from scratch, robots will build libraries of reusable process primitives (grasp, align, insert) that can be chained together for new tasks. What we're really aiming for is robots that understand the structure of tasks well enough to teach themselves, adapt to new environments, and recover from failures without constant human supervision. GRMs are a step in that direction, but the real breakthrough will come when process understanding becomes as general-purpose as language understanding is for LLMs.
 
 Sources
 - [Robo-Dopamine: General Process Reward Modeling for High-Precision Robotic Manipulation](https://arxiv.org/html/2512.23703v1)
