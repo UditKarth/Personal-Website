@@ -72,20 +72,22 @@ const allProjects = (await getCollection('projects')).sort(
                     target="_blank"
                     rel="noopener noreferrer"
                     class="text-gray-700 hover:text-gray-900 font-mono focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded"
-                    aria-label={`View ${project.data.title} demo`}
+                    aria-label={project.data.demoUrl.includes('devspot') ? `View ${project.data.title} on Devpost` : `View ${project.data.title} demo`}
                   >
-                    Demo →
+                    {project.data.demoUrl.includes('devspot') ? 'Devpost →' : 'Demo →'}
                   </a>
                 )}
-                <a
-                  href={project.data.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-gray-700 hover:text-gray-900 font-mono focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded"
-                  aria-label={`View ${project.data.title} on GitHub`}
-                >
-                  GitHub →
-                </a>
+                {project.data.githubUrl && (
+                  <a
+                    href={project.data.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-gray-700 hover:text-gray-900 font-mono focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded"
+                    aria-label={`View ${project.data.title} on GitHub`}
+                  >
+                    GitHub →
+                  </a>
+                )}
               </div>
             </div>
           </article>

@@ -41,22 +41,24 @@ const { Content } = await project.render();
         </p>
         
         <div class="flex items-center gap-4 flex-wrap mb-4 animate-fade-in-up" style="animation-delay: 0.3s;">
-          <a
-            href={project.data.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="px-4 py-2 bg-gray-900 text-white rounded font-mono text-sm hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
-          >
-            View on GitHub →
-          </a>
           {project.data.demoUrl && (
             <a
               href={project.data.demoUrl}
               target="_blank"
               rel="noopener noreferrer"
+              class="px-4 py-2 bg-gray-900 text-white rounded font-mono text-sm hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+            >
+              {project.data.demoUrl.includes('devspot') ? 'View on Devpost →' : 'View Demo →'}
+            </a>
+          )}
+          {project.data.githubUrl && (
+            <a
+              href={project.data.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               class="px-4 py-2 bg-gray-100 text-gray-900 rounded font-mono text-sm hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
             >
-              View Demo →
+              View on GitHub →
             </a>
           )}
         </div>
