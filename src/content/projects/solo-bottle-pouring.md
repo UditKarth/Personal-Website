@@ -2,7 +2,7 @@
 title: "Solo Bottle Pouring"
 description: "Robotics hackathon project: ACT model trained with LeRobot on combined datasets for bottle finding, grasping, and pouring—using action primitives on a Le Robot SO101. 4th place, 18-hour build."
 demoUrl: "https://devspot.app/projects/884"
-techStack: ["LeRobot", "ACT", "SmolVLA", "PyTorch", "Teleoperation", "NVIDIA A100"]
+techStack: ["LeRobot", "ACT", "PyTorch", "SmolVLA", "Robotics"]
 publishDate: 2026-02-03
 ---
 
