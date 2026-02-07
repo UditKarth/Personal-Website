@@ -12,12 +12,17 @@ export async function getStaticPaths() {
 
 const { project } = Astro.props;
 const { Content } = await project.render();
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? Astro.url.origin;
+const canonicalUrl = `${siteUrl}/projects/${project.slug}/`;
+const ogImage = project.data.image ?? '/og-image.png';
 ---
 
 <BaseLayout
   title={`${project.data.title} — Projects`}
   description={project.data.description}
-  image={project.data.image}
+  image={ogImage}
+  url={canonicalUrl}
 >
   <div class="container mx-auto px-6">
     <article class="max-w-3xl mx-auto">

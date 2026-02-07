@@ -18,7 +18,7 @@ A robotics hackathon project that trained an Action Chunking with Transformers (
 
 ## Technical Highlights
 
-The system uses LeRobot’s ACT implementation to learn from the three data sources. The primitive-based design (following the arxiv reference) allowed the model to segment the long-horizon task into discrete phases—localizing the bottle, grasping, and pouring—which improved robustness and sample efficiency. SmolVLA provided the vision–language backbone trained on the A100.
+The system uses LeRobot’s ACT implementation to learn from the three data sources. The primitive-based design (following the arxiv reference) allowed the model to segment the long-horizon task into discrete phases (localizing the bottle, grasping, and pouring) which improved robustness and sample efficiency. SmolVLA provided the vision–language backbone trained on the A100.
 
 ## Hackathon Results
 
