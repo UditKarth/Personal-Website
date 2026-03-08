@@ -4,6 +4,7 @@ description: "How the first full wiring diagram of the fruit fly brain, embodied
 pubDate: 2026-03-07
 status: "evergreen"
 tags: ["neuroscience", "connectomics", "robotics", "Drosophila", "FlyWire", "reinforcement-learning", "biomimetic-robotics", "control-systems", "evolution"]
+image: "/writings-images/flyeitre.jpg"
 ---
 ![FlyWire](/writings-images/flyeitre.jpg)
 (Source: Flywire)
