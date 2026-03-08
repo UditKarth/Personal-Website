@@ -220,12 +220,12 @@ The gap between "understanding what to do" and "knowing how to do it" defined a 
 
 Sources:
 
-[DreamerV3: Mastering Diverse Domains through World Models](https://vitalab.github.io/article/2023/01/19/DreamerV3.html)
-[World Action Models are Zero-shot Policies](https://arxiv.org/html/2602.15922v1)
-[World-VLA-Loop: Closed-Loop Learning of Video World Model and VLA Policy](https://arxiv.org/html/2602.06508v1)
-[MindDrive: An All-in-One Framework Bridging World Models and Vision-Language Model for End-to-End Autonomous Driving](https://arxiv.org/html/2512.04441v2)
-[Scaling Laws for Pre-training Agents and World Models](https://arxiv.org/pdf/2411.04434)
-[Scaling World Model for Hierarchical Manipulation Policies](https://arxiv.org/html/2602.10983v2)
-[DyWA: Dynamics-adaptive World Action Model for Generalizable Non-prehensile Manipulation](https://arxiv.org/html/2503.16806v2)
-[InternVLA-A1: Unifying Understanding, Generation and Action for Robotic Manipulation](https://arxiv.org/html/2601.02456v2)
-[stable-worldmodel-V1: REPRODUCIBLE WORLD MODELING RESEARCH AND EVALUATION](https://arxiv.org/pdf/2602.08968)
+- [DreamerV3: Mastering Diverse Domains through World Models](https://vitalab.github.io/article/2023/01/19/DreamerV3.html)
+- [World Action Models are Zero-shot Policies](https://arxiv.org/html/2602.15922v1)
+- [World-VLA-Loop: Closed-Loop Learning of Video World Model and VLA Policy](https://arxiv.org/html/2602.06508v1)
+- [MindDrive: An All-in-One Framework Bridging World Models and Vision-Language Model for End-to-End Autonomous Driving](https://arxiv.org/html/2512.04441v2)
+- [Scaling Laws for Pre-training Agents and World Models](https://arxiv.org/pdf/2411.04434)
+- [Scaling World Model for Hierarchical Manipulation Policies](https://arxiv.org/html/2602.10983v2)
+- [DyWA: Dynamics-adaptive World Action Model for Generalizable Non-prehensile Manipulation](https://arxiv.org/html/2503.16806v2)
+- [InternVLA-A1: Unifying Understanding, Generation and Action for Robotic Manipulation](https://arxiv.org/html/2601.02456v2)
+- [stable-worldmodel-V1: REPRODUCIBLE WORLD MODELING RESEARCH AND EVALUATION](https://arxiv.org/pdf/2602.08968)

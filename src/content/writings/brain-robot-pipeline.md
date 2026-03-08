@@ -136,7 +136,7 @@ The next challenge is moving from controlled laboratory conditions to daily life
 The machines that listen to the brain are getting dramatically better at what they hear. Making them reliable partners in the real world is the problem that matters most now.
 
 Sources:
-[Brain–computer interfaces in 2023–2024](https://www.researchgate.net/publication/390335479_Brain-computer_interfaces_in_2023-2024)
-[Deep Learning Approaches for EEG-Motor Imagery-Based BCIs: Current Models, Generalization Challenges, and Emerging Trends](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11145817)
-[Real-world evaluation of deep learning decoders for motor imagery EEG-based BCIs](https://pmc.ncbi.nlm.nih.gov/articles/PMC12745444/)
-[Transformer-based EEG Decoding: A Survey](https://arxiv.org/html/2507.02320v1)
+- [Brain–computer interfaces in 2023–2024](https://www.researchgate.net/publication/390335479_Brain-computer_interfaces_in_2023-2024)
+- [Deep Learning Approaches for EEG-Motor Imagery-Based BCIs: Current Models, Generalization Challenges, and Emerging Trends](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11145817)
+- [Real-world evaluation of deep learning decoders for motor imagery EEG-based BCIs](https://pmc.ncbi.nlm.nih.gov/articles/PMC12745444/)
+- [Transformer-based EEG Decoding: A Survey](https://arxiv.org/html/2507.02320v1)
