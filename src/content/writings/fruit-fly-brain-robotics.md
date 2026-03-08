@@ -3,8 +3,9 @@ title: "What a Fruit Fly's Brain Teaches Us About Building Better Robots"
 description: "How the first full wiring diagram of the fruit fly brain, embodied in physics-accurate digital bodies, is changing how we build robot controllers—and what it says about evolution and intelligence."
 pubDate: 2026-03-07
 status: "evergreen"
-tags: ["neuroscience", "connectomics", "robotics", "Drosophila", "FlyWire", "reinforcement-learning", "biomimetic-robotics", "control-systems", "evolution"]
+tags: ["robotics", "FlyWire", "reinforcement-learning", "biomimetic-robotics", "control-systems"]
 image: "/writings-images/flyeitre.jpg"
+series: "Applications of Robotics"
 ---
 ![FlyWire](/writings-images/flyeitre.jpg)
 (Source: Flywire)
