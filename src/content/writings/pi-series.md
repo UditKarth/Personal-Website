@@ -30,7 +30,7 @@ where $\mathbf{A}^\tau_t = \tau\mathbf{A}_t + (1-\tau)\epsilon$ and $\tau$ is dr
 
 Everything else is negotiable. What changes across the series is what gets put into the prefix and how the action expert is supervised. That's the whole arc, stated mechanically.
 
-The parameter count is worth noting before going further. The series goes from 3.3B parameters in π₀ to 5B in π₀.7, a 50% increase across four papers, most of it in the action expert. By AI research standards, that's almost nothing. The interesting growth happened everywhere else.
+The parameter count is worth noting before going further. The series goes from 3.3B parameters in π₀ to 5B in π₀.7, a nearly 50% increase across four papers, most of it in the action expert. By AI research standards, that's almost nothing. The interesting growth happened everywhere else.
 
 | | π₀ | π₀.5 | π*₀.6 | π₀.7 |
 |---|---|---|---|---|
