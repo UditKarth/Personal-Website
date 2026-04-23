@@ -6,12 +6,7 @@ status: "evergreen"
 tags: ["robotics", "VLA", "flow-matching", "physical-intelligence", "reinforcement-learning"]
 series: "Foundations of Robotics"
 ---
-
-Here's the blog post:
-
----
-
-# Four Papers, One Robot: How Physical Intelligence Rebuilt the Flow-Matching VLA
+![Pi Evolutions](/writings-images/pi.png)
 
 Most robotics papers read as isolated contributions. A new architecture here, a new dataset there, each published as if no prior work constrained the design space. The π-series from Physical Intelligence is different. Read end to end, π₀ in 2024, then π₀.5, π*₀.6, and π₀.7 through 2025, and it becomes clear these are four chapters of one argument. Each release identifies exactly which axis is bottlenecking dexterous generalist policies, adds the smallest architectural change that unlocks it, and leaves the rest of the system alone.
 
